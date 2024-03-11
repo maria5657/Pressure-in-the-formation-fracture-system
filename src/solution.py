@@ -25,14 +25,14 @@ def p_line2p(p: NDArray | list, constants: PhysicalConstants = PhysicalConstants
 
 if __name__ == '__main__':
     solver = Solver()
-    t_moments = np.exp(np.linspace(np.log(0.1), np.log(10), num=100))
+    t_moments = np.exp(np.linspace(np.log(0.1), np.log(10), num=10))
     p = solver.solve(x=1e-10, t_moments=hours2seconds(t_moments))
-    coef = np.polyfit(t_moments, p, 4)
+    coef = np.polyfit(t_moments, list(map(lambda q: float(q.real), p)), 4)
     p_new = np.poly1d(coef)
     plt.plot(t_moments, p, label='решение')
 
     t = np.linspace(0.1, 10, 1000)
-    plt.plot(t, p_new(t), label='апроксимация')
+    #plt.plot(t, p_new(t), label='апроксимация')
 
     plt.xlabel('Время, часы')
     plt.ylabel(f'Давление от {PhysicalConstants.p_init}, Па')
