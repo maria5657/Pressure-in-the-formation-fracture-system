@@ -3,7 +3,7 @@ from numpy.typing import NDArray
 from mpmath import *
 
 
-mp.dps = 50
+mp.dps = 10
 mp.pretty = True
 
 def get_inv_laplace(t_moments: NDArray, func: callable):

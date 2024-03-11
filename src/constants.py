@@ -11,7 +11,7 @@ class PhysicalConstants:
     c_rt: float = 1e-4
     mu: float = 1
     h: float = 1e1
-    q_init: float = 1e3
+    q_init: float = - 1e3
     x_f: float = 0.6e2
     p_init: float = 1e10
     psi: float = 5 + 1e-10
